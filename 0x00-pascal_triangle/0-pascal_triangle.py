@@ -27,9 +27,3 @@ def pascal_triangle(n):
             pascal_triangle.append(current_row)
 
     return pascal_triangle
-
-if __name__ == "__main__":
-    n = 5  # Number of rows
-    result = pascal_triangle(n)
-    for row in result:
-        print("[{}]".format(",".join([str(x) for x in row])))
