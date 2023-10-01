@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Pascal's Triangle"""
+
 
 def pascal_triangle(n):
     """
@@ -7,23 +9,23 @@ def pascal_triangle(n):
     :param n: The number of rows to generate.
     :return: A list of lists representing Pascal's triangle.
     """
-    pascal_triangle = []
+    pascal_tri = []
 
     if n <= 0:
         return []
 
-    for row_num in range(n):
-        if row_num == 0:
-            pascal_triangle.append([1])
+    for i in range(n):
+        if (i == 0):
+            pascal_tri.append([1])
         else:
-            current_row = []
-            for j in range(row_num + 1):
-                if j == 0 or j == row_num:
-                    current_row.append(1)
+            cur_row = []
+            for j in range(i + 1):
+                if (j == 0 or j == i):
+                    cur_row.append(1)
                 else:
-                    current_row.append(pascal_triangle[row_num - 1][j - 1] +
-                                       pascal_triangle[row_num - 1][j])
+                    cur_row.append(pascal_tri[i - 1][j - 1] +
+                                   pascal_tri[i - 1][j])
 
-            pascal_triangle.append(current_row)
+            pascal_tri.append(cur_row)
 
-    return pascal_triangle
+    return (pascal_tri)
