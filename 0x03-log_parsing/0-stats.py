@@ -6,7 +6,7 @@ def print_stats(status_counts, total_size):
     sorted_codes = sorted(status_counts.keys())
     for code in sorted_codes:
         if status_counts[code] > 0:
-            print("{}: {}".format(code, status_counts[code])
+            print("{}: {}".format(code, status_counts[code]))
 
 status_counts = {
     200: 0,
@@ -27,10 +27,9 @@ try:
         parts = line.split()
         if len(parts) >= 9:
             status = int(parts[-2])
-            file_size = int(parts[-1])
             if status in status_counts:
                 status_counts[status] += 1
-            total_size += file_size
+            total_size += int(parts[-1])
             line_count += 1
             if line_count % 10 == 0:
                 print_stats(status_counts, total_size)
